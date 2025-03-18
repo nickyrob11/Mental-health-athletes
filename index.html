@@ -243,5 +243,19 @@ async function fetchMentalHealthResources() {
 // Fetch resources when the page loads
 fetchMentalHealthResources();
 </script>
+<script>
+function toggleChatbot() {
+    let chatbot = document.getElementById("chatbot");
+    let chatToggle = document.querySelector(".chatbot-toggle");
+
+    if (chatbot.style.display === "none" || chatbot.style.display === "") {
+        chatbot.style.display = "block";
+        chatToggle.style.display = "none"; // Hide toggle button when chat is open
+    } else {
+        chatbot.style.display = "none";
+        chatToggle.style.display = "block"; // Show toggle button when chat is closed
+    }
+}
+</script>
 </body>
 </html>
