@@ -165,7 +165,45 @@ function searchResources() {
         <button onclick="sendChat()">Send</button>
     </div>
 </div>
-</body>
-</html>
+<script>
+function sendChat() {
+    let input = document.getElementById('chatInput').value.trim();
+    if (input === '') return;
+
+    appendChatMessage('You', input);
+    setTimeout(() => {
+        let response = getChatbotResponse(input);
+        appendChatMessage('Navigator', response);
+    }, 500);
+
+    document.getElementById('chatInput').value = '';
+}
+
+function appendChatMessage(sender, message) {
+    let chatbotBody = document.getElementById('chatbotBody');
+    let p = document.createElement('p');
+    p.innerHTML = `<strong>${sender}:</strong> ${message}`;
+    chatbotBody.appendChild(p);
+    chatbotBody.scrollTop = chatbotBody.scrollHeight;
+}
+
+function getChatbotResponse(query) {
+    query = query.toLowerCase();
+    
+    if (query.includes('anxiety')) {
+        return "Try our 'Managing Anxiety in Youth Sports' resource.";
+    } else if (query.includes('burnout')) {
+        return "Check out 'Preventing Burnout in Athletes'.";
+    } else if (query.includes('injury')) {
+        return "See 'Injury Recovery: Mental Health Support'.";
+    } else if (query.includes('stress')) {
+        return "We recommend 'Mindfulness for Peak Performance'.";
+    } else if (query.includes('help')) {
+        return "If you're in crisis, call 988 for immediate support.";
+    } else {
+        return "I'm not sure, but try using the search bar above.";
+    }
+}
+</script>
 </body>
 </html>
