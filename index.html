@@ -137,9 +137,12 @@
 </div>
 </main>
 
-<!-- Chatbot UI -->
+<!-- Chatbot UI with Toggle Button -->
 <div class="chatbot" id="chatbot">
-    <div class="chatbot-header">Resource Navigator</div>
+    <div class="chatbot-header">
+        <span>Resource Navigator</span>
+        <button onclick="toggleChatbot()" class="close-btn">✖</button>
+    </div>
     <div class="chatbot-body" id="chatbotBody">
         <p><em>Hi! How can I help you find a resource today?</em></p>
     </div>
@@ -148,6 +151,9 @@
         <button onclick="sendChat()">Send</button>
     </div>
 </div>
+
+<!-- Chatbot Toggle Button -->
+<button onclick="toggleChatbot()" class="chatbot-toggle">💬 Chat</button>
 
 <!-- Search Script -->
 <script>
